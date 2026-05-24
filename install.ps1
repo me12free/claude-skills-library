@@ -1,27 +1,50 @@
 # claude-skills-library installer for Windows (PowerShell)
+#
 # Usage:
 #   .\install.ps1                                    # install everything globally
 #   .\install.ps1 -Scope global -Pack design         # design skills only, global
 #   .\install.ps1 -Scope global -Pack engineering    # engineering commands only, global
 #   .\install.ps1 -Scope project -Pack all           # install into current project (.claude/)
 #   .\install.ps1 -Scope project -Pack design        # design skills into current project only
+#
+# If blocked by execution policy, run:
+#   powershell -ExecutionPolicy Bypass -File install.ps1
+#
+# SECURITY: only run this from a clone of the official repo.
+# Verify the URL before cloning: https://github.com/YOUR_USERNAME/claude-skills-library
 
 param(
+  [ValidateSet("global","project")]
   [string]$Scope = "global",
-  [string]$Pack  = "all"
+
+  [ValidateSet("all","design","engineering")]
+  [string]$Pack = "all"
 )
 
+$ErrorActionPreference = "Stop"
+
+# ── resolve repo root ─────────────────────────────────────────────────────────
+
 $repoDir = $PSScriptRoot
+
+if (-not (Test-Path "$repoDir\design\skills") -or -not (Test-Path "$repoDir\engineering\commands")) {
+  Write-Error "Could not find design\skills or engineering\commands under $repoDir. Run this script from the root of the claude-skills-library repo."
+  exit 1
+}
+
+# ── resolve target directories ────────────────────────────────────────────────
 
 if ($Scope -eq "global") {
   $skillsDir   = "$env:USERPROFILE\.claude\skills"
   $commandsDir = "$env:USERPROFILE\.claude\commands"
   $scopeLabel  = "global (~/.claude/)"
 } else {
-  $skillsDir   = ".claude\skills"
-  $commandsDir = ".claude\commands"
-  $scopeLabel  = "project (.claude/)"
+  $skillsDir   = "$((Get-Location).Path)\.claude\skills"
+  $commandsDir = "$((Get-Location).Path)\.claude\commands"
+  $scopeLabel  = "project ($((Get-Location).Path)\.claude\)"
 }
+
+# ── install ───────────────────────────────────────────────────────────────────
 
 Write-Host ""
 Write-Host "Claude Skills Library -- Installer"
