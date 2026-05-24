@@ -1,4 +1,4 @@
-# Install Prompt — Global (paste this into Claude Code)
+﻿# Install Prompt - Global (paste this into Claude Code)
 
 > Paste the block below into Claude Code to install everything globally.
 > Claude will clone the repo, run the install, and confirm what was set up.

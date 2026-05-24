@@ -1,36 +1,55 @@
 # Claude Skills Library
 
-A reusable, shareable library of Claude Code skills and slash commands covering two domains:
+<p align="center">
+  <a href="https://github.com/me12free/claude-skills-library"><img src="https://img.shields.io/badge/Claude_Code-compatible-blue?style=flat-square" alt="Claude Code compatible"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License"></a>
+  <img src="https://img.shields.io/badge/commands-28-orange?style=flat-square" alt="28 commands">
+  <img src="https://img.shields.io/badge/platform-Mac%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square" alt="Cross-platform">
+</p>
 
-- **Design** — a full 7-phase AI design process: from idea → brief → tokens → build → review
-- **Engineering** — 15 expert prompts for architecture reviews, security audits, PR reviews, performance audits, and more
-
-Works globally (all your projects) or per-project (team-shared). Install in 60 seconds.
-
----
-
-## About This Library
-
-Built by a full-stack developer with a strong backend bias — not a designer. The engineering commands are written from that perspective: security-first, production-focused, backend-heavy. The design skills exist because even backend-leaning developers ship UIs, and shipping a bad UI is still shipping bad work.
-
-**Design skills** are adapted from [julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills) — an excellent design process library by Julian Oczkowski. I adapted the skills for Claude Code's slash command system and added the standalone prompt variants. All credit for the design process, phase structure, and aesthetic philosophy system goes to Julian.
-
-**Engineering commands** are my own, written for senior full-stack and backend work.
+<p align="center">
+  A reusable library of Claude Code slash commands covering full-stack engineering and UI design workflows.<br>
+  Works globally across all your projects, or installed per-project for your team.
+</p>
 
 ---
 
-## Before You Start — Prerequisites
+## At a Glance
 
-**These skills work from context. They are not magic wands.**
+| | What | Commands |
+|---|---|---|
+| **Design** | 7-phase AI design process: idea to production UI | 13 commands + 8 skill files |
+| **Engineering** | Expert prompts for audits, reviews, and architecture | 15 commands |
 
-For the skills to produce useful output, Claude needs to understand your project. Before running any skill or prompt, make sure you have:
+```
+28 total commands  |  install in 60 seconds  |  global or per-project  |  Mac · Linux · Windows
+```
 
-- A `CLAUDE.md` in your project root describing the tech stack, conventions, and key decisions
-- Your project already partially explored by Claude (run `/init` if you haven't)
-- For design skills: a working frontend codebase or at least a clear tech stack decision
-- For engineering skills: the code already in the repo (skills read real files — they don't invent them)
+---
 
-The more context Claude has, the better the output. Vague project = vague results.
+## About
+
+Built by a full-stack developer with a strong backend bias, not a designer. The engineering commands reflect that: security-first, production-focused, backend-heavy. The design commands exist because even backend developers ship UIs, and a bad UI ships bad work regardless of how solid the backend is.
+
+**Design skills** are adapted from [julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills) by Julian Oczkowski. The design process, phase structure, aesthetic philosophy system, and SKILL.md format are his original work. I adapted them for Claude Code's slash command system and added standalone prompt variants for developers who need to ship UI without being designers.
+
+**Engineering commands** are original, written for senior full-stack and backend work.
+
+---
+
+## Before You Start
+
+> These skills work from your project context. They are not magic wands.
+
+Claude needs to understand your project to produce useful output. Before running any command:
+
+- Have a `CLAUDE.md` in your project root (run `/init` in Claude Code if you don't)
+- Have your codebase checked out and readable
+- Know your tech stack
+- For engineering skills: the code must already exist in the repo
+- For design skills: have at least a tech stack decision made
+
+The more context Claude has, the better the output. **Vague project = vague results.**
 
 See [setup/PREREQUISITES.md](setup/PREREQUISITES.md) for the full checklist.
 
@@ -38,77 +57,118 @@ See [setup/PREREQUISITES.md](setup/PREREQUISITES.md) for the full checklist.
 
 ## Install
 
-### Option 1 — Script (fastest)
+### Script
 
 **Mac / Linux:**
 ```bash
 git clone https://github.com/me12free/claude-skills-library.git
 cd claude-skills-library
-bash install.sh                    # install everything globally
-bash install.sh global design      # design skills only
-bash install.sh global engineering # engineering commands only
-bash install.sh project all        # install into current project (.claude/)
+bash install.sh                     # everything, globally
+bash install.sh global design       # design only
+bash install.sh global engineering  # engineering only
+bash install.sh project all         # into current project (.claude/)
 ```
 
 **Windows (PowerShell):**
 ```powershell
 git clone https://github.com/me12free/claude-skills-library.git
 cd claude-skills-library
-.\install.ps1                           # install everything globally
+.\install.ps1                            # everything, globally
 .\install.ps1 -Scope global -Pack design
 .\install.ps1 -Scope global -Pack engineering
-.\install.ps1 -Scope project -Pack all  # install into current project
+.\install.ps1 -Scope project -Pack all   # into current project
 ```
 
----
+> If PowerShell blocks the script: `powershell -ExecutionPolicy Bypass -File install.ps1`
 
-### Option 2 — Tell Claude (no terminal needed)
+### Tell Claude (no terminal needed)
 
-Open Claude Code in any project and paste the prompt from [setup/INSTALL_GLOBAL_PROMPT.md](setup/INSTALL_GLOBAL_PROMPT.md).
+Open Claude Code and paste the prompt from [setup/INSTALL_GLOBAL_PROMPT.md](setup/INSTALL_GLOBAL_PROMPT.md). Claude clones the repo, runs the install, and confirms what was set up.
 
-Claude will clone the repo, run the install, and confirm what was installed.
+### Per-project (share with your team)
 
----
+Paste the prompt from [setup/INSTALL_PROJECT_PROMPT.md](setup/INSTALL_PROJECT_PROMPT.md) inside your project. Claude installs into `.claude/` in your project root.
 
-### Option 3 — Per-project setup prompt
+Then commit it so teammates get the commands automatically:
 
-Paste the prompt from [setup/INSTALL_PROJECT_PROMPT.md](setup/INSTALL_PROJECT_PROMPT.md) into Claude Code inside your project.
-
-Claude will install the skills into `.claude/` in your current project, making them available to your team when they check out the repo.
+```bash
+git add .claude/
+git commit -m "chore: add claude skills library"
+```
 
 ---
 
 ## What Gets Installed
 
-| Location | What | Available as |
-|---|---|---|
-| `~/.claude/skills/` | 8 design skill knowledge files | Referenced by design commands |
-| `~/.claude/commands/` | 13 design commands | `/design-flow`, `/grill-me`, etc. |
-| `~/.claude/commands/` | 15 engineering commands | `/pr-review`, `/security-audit`, etc. |
+| Path | Contents |
+|---|---|
+| `~/.claude/skills/` | 8 design skill knowledge files (read by design commands) |
+| `~/.claude/commands/` | 13 design slash commands |
+| `~/.claude/commands/` | 15 engineering slash commands |
 
 ---
 
 ## Design Commands
 
-The design system is a 7-phase process. Run `/design-flow` to be guided through all phases in sequence, or jump to any individual phase.
+Run `/design-flow` to be guided through all 7 phases in sequence, or jump to any individual phase.
 
-| Command | Phase | What it does |
-|---|---|---|
-| `/design-session <product>` | All | Master prompt — loads skills, starts full flow |
-| `/design-flow` | Orchestrator | Guided 7-phase sequence with confirm between each |
-| `/grill-me` | 1 | Stress-test the idea before any code is written |
-| `/design-brief` | 2 | Structured brief + codebase scan + aesthetic direction |
-| `/information-architecture` | 3 | Nav, pages, hierarchy, URL patterns, user flows |
-| `/design-tokens` | 4 | Complete CSS token system (light + dark mode) |
-| `/brief-to-tasks` | 5 | Break the brief into layered, independently buildable slices |
-| `/frontend-build` | 6 | Build the UI from all prior docs |
-| `/design-review` | 7 | Critique against the brief — screenshots or code |
-| `/design-build-one <component>` | Standalone | Build one specific component |
-| `/design-review-built <slug>` | Standalone | Review what was built |
-| `/design-fix <files>` | Standalone | Fix an existing page's design |
-| `/design-tokens-new <product>` | Standalone | Generate a token system from scratch |
+```
+/design-flow
+     |
+     v
+/grill-me              phase 1: stress-test the idea before any code is written
+     |
+     v
+/design-brief          phase 2: structured brief + codebase scan + aesthetic direction
+     |
+     v
+/information-architecture   phase 3: nav, pages, hierarchy, URL patterns, user flows
+     |
+     v
+/design-tokens         phase 4: complete CSS token system (light + dark mode)
+     |
+     v
+/brief-to-tasks        phase 5: break the brief into layered, independently buildable slices
+     |
+     v
+/frontend-build        phase 6: build the UI from every doc above
+     |
+     v
+/design-review         phase 7: critique against the brief (screenshots or code)
+```
 
-**Design output:** All docs are written to `.design/<feature-name>/` in your project root.
+| Command | What it does |
+|---|---|
+| `/design-session <product>` | Master prompt: loads skills and starts the full flow |
+| `/design-flow` | Guided 7-phase sequence with a confirm between each phase |
+| `/grill-me` | Stress-test requirements before a line of code is written |
+| `/design-brief` | Structured brief + codebase scan + aesthetic direction |
+| `/information-architecture` | Nav, pages, content hierarchy, URL patterns, user flows |
+| `/design-tokens` | Full CSS custom property token system, light and dark mode |
+| `/brief-to-tasks` | Break the brief into layered, independently buildable slices |
+| `/frontend-build` | Build the UI from all prior documents |
+| `/design-review` | Structured critique against the brief |
+| `/design-build-one <component>` | Build a single scoped component |
+| `/design-review-built <slug>` | Review what was built against its brief |
+| `/design-fix <files>` | Diagnose and fix an existing page's design |
+| `/design-tokens-new <product>` | Generate a token system from scratch |
+
+All design output is written to `.design/<feature-name>/` in your project root. Commit that folder - it is the design rationale for the feature.
+
+### Aesthetic Philosophies
+
+The `/design-tokens` and `/frontend-build` skills use one of eight named design philosophies. Name one or describe a vibe and Claude picks the closest match.
+
+| Philosophy | Character |
+|---|---|
+| Dieter Rams | Less but better. Functional. Zero decoration without purpose. |
+| Swiss / International | Grid-locked. Strong type hierarchy. Objective. |
+| Japanese Minimalism (Ma) | Negative space as content. Quiet. Restrained. |
+| Brutalist | Raw structure visible. Anti-polish. Content-first. |
+| Scandinavian | Warmth plus restraint. Rounded. Accessible by default. |
+| Art Deco | Geometric luxury. Bold symmetry. Statement typography. |
+| Neo-Memphis | Playful chaos. Clashing colour. Anti-corporate. |
+| Editorial / Magazine | Content-led. Display typography. Print-inspired. |
 
 ---
 
@@ -116,28 +176,21 @@ The design system is a 7-phase process. Run `/design-flow` to be guided through 
 
 | Command | What it does |
 |---|---|
-| `/architecture-review <project>` | Target architecture doc with Mermaid diagram |
-| `/pr-review <branch>` | Security-first PR review |
+| `/architecture-review <project>` | Target architecture document with Mermaid diagram |
+| `/pr-review <branch>` | Security-first structured PR review |
 | `/security-audit <service>` | 3-agent pre-production security audit |
-| `/developer-guide <feature>` | Security-first handoff doc for a developer |
-| `/feature-plan <feature>` | Phased implementation plan, no code yet |
-| `/pr-comment-direct <branch>` | Blunt GitHub PR comment, severity-grouped |
+| `/developer-guide <feature>` | Security-first handoff document for a developer |
+| `/feature-plan <feature>` | Phased implementation plan, no code written yet |
+| `/pr-comment-direct <branch>` | Blunt GitHub PR comment grouped by severity |
 | `/pr-comment-inquiry <branch>` | PR comment that asks before asserting |
-| `/integration-docs <provider>` | Research + verify official docs before coding |
+| `/integration-docs <provider>` | Research and verify official docs before coding |
 | `/codebase-review <service>` | 4-agent full codebase audit |
-| `/performance-audit <service>` | DB, API, cache, task queue bottleneck analysis |
-| `/optimize <file or endpoint>` | Two-phase optimization plan with approval gate |
-| `/post-mortem <service>` | Structured incident post-mortem + fix plan |
-| `/new-service <name>` | Pre-scaffold briefing — what to reuse, what risks |
-| `/test-gaps <module>` | Coverage map + prioritised test stubs |
-| `/dep-audit <service>` | CVE + maintenance risk table for all dependencies |
-
----
-
-## Credits
-
-- **Design skills** — adapted from [julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills) by Julian Oczkowski. Original design process, phase structure, aesthetic philosophy system, and SKILL.md format are his work.
-- **Engineering commands** — written by [me12free](https://github.com/me12free).
+| `/performance-audit <service>` | DB, API, cache, and task queue bottleneck analysis |
+| `/optimize <file or endpoint>` | Two-phase optimization plan with an approval gate |
+| `/post-mortem <service>` | Structured incident post-mortem and fix plan |
+| `/new-service <name>` | Pre-scaffold briefing: what to reuse, what risks exist |
+| `/test-gaps <module>` | Coverage map and prioritised test stubs |
+| `/dep-audit <service>` | CVE and maintenance risk table for all dependencies |
 
 ---
 
@@ -145,20 +198,30 @@ The design system is a 7-phase process. Run `/design-flow` to be guided through 
 
 [setup/CLAUDE_MD_TEMPLATE.md](setup/CLAUDE_MD_TEMPLATE.md) is a global instruction template for `~/.claude/CLAUDE.md`.
 
-It configures Claude as a senior full-stack engineer / security architect with opinionated defaults for code quality, security, git behaviour, and PR reviews. Adopt it wholesale or cherry-pick sections.
+It configures Claude as a senior full-stack engineer and security architect with opinionated defaults for code quality, security, git behaviour, and PR reviews. Adopt it wholesale or take the sections you want.
 
 ---
 
-## Sharing with Your Team
+## Key Principles
 
-For per-project installation, the `.claude/` directory should be committed to your repo:
+These apply to every skill and command in this library:
 
-```bash
-git add .claude/
-git commit -m "chore: add claude skills library"
-```
+- **Context-first** - Every skill reads the existing codebase before generating anything. It never duplicates what already exists.
+- **Mobile-first** - Every UI is built at 375px first, scaled up with `min-width` queries.
+- **Dark mode by default** - Token system generates both palettes. UI supports `prefers-color-scheme` and a manual toggle.
+- **Token-only values** - No hardcoded colours, sizes, or durations in component code. Everything references CSS custom properties.
+- **Security defaults** - Engineering commands apply security checks automatically. No reminder needed.
+- **No generic output** - Skills use the project's existing patterns. They do not generate boilerplate or cookie-cutter code.
 
-Teammates who clone the repo get all commands and skills automatically when they open Claude Code.
+---
+
+## Credits
+
+| Part | Credit |
+|---|---|
+| Design skills (process, phases, philosophy system, SKILL.md format) | [Julian Oczkowski](https://github.com/julianoczkowski/designer-skills) |
+| Engineering commands | [me12free](https://github.com/me12free) |
+| Adaptation for Claude Code slash commands | [me12free](https://github.com/me12free) |
 
 ---
 
@@ -166,32 +229,34 @@ Teammates who clone the repo get all commands and skills automatically when they
 
 ```
 claude-skills-library/
-├── README.md
-├── install.sh              # Mac/Linux installer
-├── install.ps1             # Windows installer
-│
-├── design/
-│   ├── README.md
-│   ├── skills/             # Knowledge files read by design commands
-│   │   ├── design-flow/SKILL.md
-│   │   ├── grill-me/SKILL.md
-│   │   ├── design-brief/SKILL.md
-│   │   ├── information-architecture/SKILL.md
-│   │   ├── design-tokens/SKILL.md
-│   │   ├── brief-to-tasks/SKILL.md
-│   │   ├── frontend-build/SKILL.md
-│   │   └── design-review/SKILL.md
-│   └── commands/           # Slash commands (~/.claude/commands/)
-│       └── *.md
-│
-├── engineering/
-│   ├── README.md
-│   └── commands/           # Slash commands (~/.claude/commands/)
-│       └── *.md
-│
-└── setup/
-    ├── PREREQUISITES.md
-    ├── CLAUDE_MD_TEMPLATE.md
-    ├── INSTALL_GLOBAL_PROMPT.md
-    └── INSTALL_PROJECT_PROMPT.md
+|-- README.md
+|-- install.sh              Mac/Linux installer
+|-- install.ps1             Windows installer
+|-- LICENSE
+|-- SECURITY.md
+|
+|-- design/
+|   |-- README.md
+|   |-- skills/             Knowledge files read by design commands
+|   |   |-- design-flow/SKILL.md
+|   |   |-- grill-me/SKILL.md
+|   |   |-- design-brief/SKILL.md
+|   |   |-- information-architecture/SKILL.md
+|   |   |-- design-tokens/SKILL.md
+|   |   |-- brief-to-tasks/SKILL.md
+|   |   |-- frontend-build/SKILL.md
+|   |   `-- design-review/SKILL.md
+|   `-- commands/           Slash commands installed to ~/.claude/commands/
+|       `-- *.md
+|
+|-- engineering/
+|   |-- README.md
+|   `-- commands/           Slash commands installed to ~/.claude/commands/
+|       `-- *.md
+|
+`-- setup/
+    |-- PREREQUISITES.md
+    |-- CLAUDE_MD_TEMPLATE.md
+    |-- INSTALL_GLOBAL_PROMPT.md
+    `-- INSTALL_PROJECT_PROMPT.md
 ```

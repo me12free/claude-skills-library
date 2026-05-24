@@ -1,6 +1,6 @@
-# Prerequisites — What You Need Before Using These Skills
+﻿# Prerequisites - What You Need Before Using These Skills
 
-The skills and prompts in this library read your actual codebase and project context. They are not standalone — they amplify what already exists. The more context Claude has going in, the better the output.
+The skills and prompts in this library read your actual codebase and project context. They are not standalone - they amplify what already exists. The more context Claude has going in, the better the output.
 
 ---
 
@@ -40,12 +40,12 @@ Claude reads real files. Skills work best when:
 - Vague scope = vague audit. "Audit the whole repo" is less useful than "Audit auth/, services/, and routers/"
 
 ### `/integration-docs`
-- Claude will web-search the official docs — confirm the URL is from the official domain before trusting content
+- Claude will web-search the official docs - confirm the URL is from the official domain before trusting content
 - Have your `.env.example` up to date so Claude knows which env vars already exist
 
 ### `/dep-audit`
 - Requires a `requirements.txt`, `pyproject.toml`, or `package.json` in the project root
-- Claude will web-search for CVEs — results are best-effort, not a substitute for a dedicated scanner
+- Claude will web-search for CVEs - results are best-effort, not a substitute for a dedicated scanner
 
 ---
 
@@ -55,17 +55,17 @@ Claude reads real files. Skills work best when:
 
 You need to have decided (or be willing to decide during grilling):
 
-- **Tech stack** — framework, CSS approach (Tailwind, CSS modules, global CSS, styled-components), component library if any
-- **Existing components** — what's already built? Claude will scan for these, but knowing in advance speeds things up
-- **Existing token system** — any `tokens.css`, `variables.css`, Tailwind config? Claude will detect these and extend rather than replace
-- **Screen sizes to support** — mobile-first is the default (375px); let Claude know if you're desktop-only
+- **Tech stack** - framework, CSS approach (Tailwind, CSS modules, global CSS, styled-components), component library if any
+- **Existing components** - what's already built? Claude will scan for these, but knowing in advance speeds things up
+- **Existing token system** - any `tokens.css`, `variables.css`, Tailwind config? Claude will detect these and extend rather than replace
+- **Screen sizes to support** - mobile-first is the default (375px); let Claude know if you're desktop-only
 
-You do **not** need to have the visual design figured out — that's what `/grill-me` and `/design-brief` are for.
+You do **not** need to have the visual design figured out - that's what `/grill-me` and `/design-brief` are for.
 
 ### During the design flow
 
 - All design documents are saved to `.design/<feature-name>/` in your project root
-- These documents persist between sessions — if you close Claude and come back, Claude can resume from where it left off
+- These documents persist between sessions - if you close Claude and come back, Claude can resume from where it left off
 - Committing the `.design/` directory means your team can see the design rationale
 
 ### `/frontend-build`
@@ -73,7 +73,7 @@ You do **not** need to have the visual design figured out — that's what `/gril
 Before Claude can build, you need:
 - A completed `DESIGN_BRIEF.md` (from `/design-brief`)
 - A token system in place or agreed to skip it
-- A task list (from `/brief-to-tasks`) — Claude will not start building without a brief
+- A task list (from `/brief-to-tasks`) - Claude will not start building without a brief
 
 ---
 
@@ -86,4 +86,4 @@ Run this mental checklist before starting any skill:
 - [ ] I know my tech stack
 - [ ] I know roughly what I want to build or review
 - [ ] Git is configured (for engineering skills)
-- [ ] I have 15–30 minutes — these skills produce thorough output, not one-liners
+- [ ] I have 15–30 minutes - these skills produce thorough output, not one-liners

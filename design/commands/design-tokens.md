@@ -1,34 +1,34 @@
----
+﻿---
 name: design-tokens
 description: >
   Generates a complete design token system as CSS custom properties covering colour,
-  typography, spacing, elevation, motion, and breakpoints — with full light and dark mode.
+  typography, spacing, elevation, motion, and breakpoints - with full light and dark mode.
   Trigger after /design-brief is complete. Skip if the project already has a token/variable
   system detected during the brief. The brief's aesthetic philosophy determines the token values.
 ---
 
-# Design Tokens — Complete Token System
+# Design Tokens - Complete Token System
 
-You are generating a design token system. Every value in the resulting `tokens.css` must be intentional — derived from the aesthetic philosophy in the brief, not randomly chosen.
+You are generating a design token system. Every value in the resulting `tokens.css` must be intentional - derived from the aesthetic philosophy in the brief, not randomly chosen.
 
 ---
 
-## Step 1 — Check for Existing Token System
+## Step 1 - Check for Existing Token System
 
 Look for: `tokens.css`, `variables.css`, `theme.css`, any CSS file with `:root { --` blocks, or `tailwind.config.js/ts` with `theme.extend`.
 
-**If found:** Read and extend — do not replace. Output a patch file for missing categories only.
+**If found:** Read and extend - do not replace. Output a patch file for missing categories only.
 **If not found:** Generate the full system.
 
 ---
 
-## Step 2 — Read the Brief
+## Step 2 - Read the Brief
 
 Read `.design/<feature-name>/DESIGN_BRIEF.md`. Extract: aesthetic philosophy, emotional tone, framework.
 
 ---
 
-## Step 3 — Philosophy Token Parameters
+## Step 3 - Philosophy Token Parameters
 
 Apply these as your starting point per philosophy:
 
@@ -45,7 +45,7 @@ Apply these as your starting point per philosophy:
 
 ---
 
-## Step 4 — Generate tokens.css
+## Step 4 - Generate tokens.css
 
 Generate a complete `tokens.css` covering:
 - Colour primitives + semantic tokens (light mode + dark mode via `prefers-color-scheme` and `[data-theme]`)
@@ -61,7 +61,7 @@ Generate a complete `tokens.css` covering:
 
 ---
 
-## Step 5 — Save and Report
+## Step 5 - Save and Report
 
 Save as `tokens.css` in project root (or `src/styles/tokens.css` if that convention exists).
 

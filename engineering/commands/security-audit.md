@@ -1,22 +1,22 @@
-I need a thorough pre-production security audit of $ARGUMENTS.
+﻿I need a thorough pre-production security audit of $ARGUMENTS.
 Real money / sensitive user data is at stake. Treat every finding as potentially critical.
 
 Launch three parallel expert auditors covering these slices:
 
-Agent 1 — Transport and middleware layer:
+Agent 1 - Transport and middleware layer:
 Read: {{list middleware and auth files}}
 Audit: auth credential validation, replay window, IP filtering, rate limiting (sliding vs fixed),
 body size limits, SSRF on any URL inputs, session factory isolation, startup secret validation,
 hardcoded secrets, logging of PII.
 
-Agent 2 — Business logic and data layer:
+Agent 2 - Business logic and data layer:
 Read: {{list service and model files}}
 Audit: double-processing prevention (idempotency), state machine correctness,
 commit-before-notify ordering, session isolation per request/task, stale ORM state,
 Celery task safety (acks_late, reject_on_worker_lost), silent exception swallowing,
 race conditions on concurrent writes.
 
-Agent 3 — Integration and API boundaries:
+Agent 3 - Integration and API boundaries:
 Read: {{list API router, webhook, and external integration files}}
 Audit: webhook signature verification (mandatory vs skippable), provider callback handling,
 credential isolation between services, 4xx vs 5xx error handling, response body leakage,

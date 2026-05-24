@@ -1,4 +1,4 @@
-I want to implement $ARGUMENTS.
+﻿I want to implement $ARGUMENTS.
 
 Before proposing anything, explore the codebase:
 1. Find every existing utility, service, or pattern that is relevant
@@ -8,13 +8,13 @@ Before proposing anything, explore the codebase:
 
 Then produce a phased implementation plan:
 
-**Phase 1 — Core (ship this)**
+**Phase 1 - Core (ship this)**
 - List every file to change with the exact change
 - Identify which existing utilities to reuse (file:function)
 - Identify any new files needed
 - List the DB migration changes if any
 
-**Phase 2 — Hardening**
+**Phase 2 - Hardening**
 - Edge cases and error handling to add after Phase 1 is stable
 
 **Risks**

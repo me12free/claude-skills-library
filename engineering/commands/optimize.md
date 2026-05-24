@@ -1,4 +1,4 @@
-I want to optimize $ARGUMENTS.
+﻿I want to optimize $ARGUMENTS.
 
 Before proposing changes:
 1. Read the target file(s) in full
@@ -7,12 +7,12 @@ Before proposing changes:
 
 Then produce a two-phase optimization plan:
 
-**Phase 1 — No-risk wins (ship immediately)**
+**Phase 1 - No-risk wins (ship immediately)**
 - Changes with zero behaviour change: index additions, query rewrites, removing redundant
   fetches, replacing ORM calls with more efficient equivalents
 - For each: file:line, before snippet, after snippet, why it's faster
 
-**Phase 2 — Structural changes (requires testing)**
+**Phase 2 - Structural changes (requires testing)**
 - Moving sync work to async tasks, adding caching, batching external calls
 - For each: the change, the tradeoff, and the test that must pass before shipping
 

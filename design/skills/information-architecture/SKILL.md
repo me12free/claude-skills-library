@@ -1,4 +1,4 @@
----
+﻿---
 name: information-architecture
 description: >
   Defines the structural skeleton of the feature: navigation, pages, content hierarchy,
@@ -13,7 +13,7 @@ You are defining the structural skeleton of the feature. This is not visual desi
 
 ---
 
-## Step 1 — Read the Brief
+## Step 1 - Read the Brief
 
 Find and read `.design/<feature-name>/DESIGN_BRIEF.md` fully.
 
@@ -21,13 +21,13 @@ If it doesn't exist: ask "Can you describe what you're building in 2–3 sentenc
 
 ---
 
-## Step 2 — Complexity Check
+## Step 2 - Complexity Check
 
 Assess whether this feature needs a full IA or a simplified one.
 
 - **Multi-page / multi-section feature** → run full IA
 - **Single page with multiple states** → run simplified IA (sections only, no URL patterns)
-- **Single component** → skip this skill. Tell the user: "This is a single-component feature — no IA needed. Proceed to `/design-tokens`."
+- **Single component** → skip this skill. Tell the user: "This is a single-component feature - no IA needed. Proceed to `/design-tokens`."
 
 If multi-page: ask up to 3 clarifying questions before proceeding. Examples:
 - "How do users enter this feature? From a nav item, a dashboard card, a button?"
@@ -36,17 +36,17 @@ If multi-page: ask up to 3 clarifying questions before proceeding. Examples:
 
 ---
 
-## Step 3 — Define the Architecture
+## Step 3 - Define the Architecture
 
 Structure the IA around these dimensions:
 
 ### Navigation Pattern
 Choose one and justify it:
-- **Top navigation** — works for 4–7 primary items; familiar for web apps
-- **Left sidebar** — works for complex tools with many sections; persistent context
-- **Bottom navigation** — works for mobile-primary apps; max 5 items
-- **Breadcrumb + contextual nav** — works for deep hierarchy content
-- **No persistent nav** — works for focused single-task flows (onboarding, checkout)
+- **Top navigation** - works for 4–7 primary items; familiar for web apps
+- **Left sidebar** - works for complex tools with many sections; persistent context
+- **Bottom navigation** - works for mobile-primary apps; max 5 items
+- **Breadcrumb + contextual nav** - works for deep hierarchy content
+- **No persistent nav** - works for focused single-task flows (onboarding, checkout)
 
 ### Page / View Inventory
 List every page or view:
@@ -56,7 +56,7 @@ List every page or view:
 | | | | |
 
 ### Content Hierarchy
-For each page, define the hierarchy of content zones (not visual design — structural priority):
+For each page, define the hierarchy of content zones (not visual design - structural priority):
 
 ```
 Page: [Name]
@@ -93,12 +93,12 @@ Error path:
 
 ---
 
-## Step 4 — Save Output
+## Step 4 - Save Output
 
 Save to `.design/<feature-name>/INFORMATION_ARCHITECTURE.md`:
 
 ```markdown
-# Information Architecture — <Feature Name>
+# Information Architecture - <Feature Name>
 
 ## Navigation Pattern
 **Pattern:** [chosen pattern]  

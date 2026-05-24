@@ -1,4 +1,4 @@
-Audit $ARGUMENTS for performance bottlenecks and scalability limits.
+﻿Audit $ARGUMENTS for performance bottlenecks and scalability limits.
 
 Explore the codebase fully before reporting. Then produce:
 
@@ -15,7 +15,7 @@ Explore the codebase fully before reporting. Then produce:
 - Identify any endpoint doing more than one round-trip to the DB when one would do
 
 **Caching**
-- Identify data that is read frequently but changes rarely — candidate for cache
+- Identify data that is read frequently but changes rarely - candidate for cache
 - Identify any existing cache usage that has no TTL or no invalidation strategy
 - Recommend specific cache keys, TTLs, and invalidation triggers
 

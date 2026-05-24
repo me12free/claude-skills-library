@@ -1,6 +1,6 @@
-We had an incident in $ARGUMENTS on {{date}} involving {{brief description}}.
+﻿We had an incident in $ARGUMENTS on {{date}} involving {{brief description}}.
 
-I need a structured post-mortem and fix plan. Do not speculate — only use what is in:
+I need a structured post-mortem and fix plan. Do not speculate - only use what is in:
 - The codebase
 - {{any logs, stack traces, or error outputs pasted below}}
 

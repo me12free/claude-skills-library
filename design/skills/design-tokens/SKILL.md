@@ -1,19 +1,19 @@
----
+﻿---
 name: design-tokens
 description: >
   Generates a complete design token system as CSS custom properties covering colour,
-  typography, spacing, elevation, motion, and breakpoints — with full light and dark mode.
+  typography, spacing, elevation, motion, and breakpoints - with full light and dark mode.
   Trigger after /design-brief is complete. Skip if the project already has a token/variable
   system detected during the brief. The brief's aesthetic philosophy determines the token values.
 ---
 
-# Design Tokens — Complete Token System
+# Design Tokens - Complete Token System
 
-You are generating a design token system. Every value in the resulting `tokens.css` must be intentional — derived from the aesthetic philosophy in the brief, not randomly chosen.
+You are generating a design token system. Every value in the resulting `tokens.css` must be intentional - derived from the aesthetic philosophy in the brief, not randomly chosen.
 
 ---
 
-## Step 1 — Check for Existing Token System
+## Step 1 - Check for Existing Token System
 
 Look for:
 - `tokens.css`, `variables.css`, `theme.css`
@@ -27,7 +27,7 @@ Look for:
 
 ---
 
-## Step 2 — Read the Brief
+## Step 2 - Read the Brief
 
 Read `.design/<feature-name>/DESIGN_BRIEF.md`. Extract:
 - Aesthetic philosophy (determines tone of all values)
@@ -36,7 +36,7 @@ Read `.design/<feature-name>/DESIGN_BRIEF.md`. Extract:
 
 ---
 
-## Step 3 — Determine Token Values by Philosophy
+## Step 3 - Determine Token Values by Philosophy
 
 Use these parameters as your starting point. Adjust based on the brief's emotional tone.
 
@@ -69,9 +69,9 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 - **Shadows:** None, or extreme (8px offset, no blur).
 
 ### Scandinavian
-- **Colours:** Warm white, warm grey, muted sage or clay accent. Never pure black — use very dark navy or charcoal.
+- **Colours:** Warm white, warm grey, muted sage or clay accent. Never pure black - use very dark navy or charcoal.
 - **Type:** Rounded sans (Nunito, Figtree, or Plus Jakarta Sans). Slightly loose tracking.
-- **Spacing:** 8px base unit. Comfortable density — not tight, not airy.
+- **Spacing:** 8px base unit. Comfortable density - not tight, not airy.
 - **Motion:** 250–350ms. Gentle ease. Spring animations allowed.
 - **Shadows:** Warm, layered. Low-contrast.
 
@@ -84,7 +84,7 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 
 ### Neo-Memphis
 - **Colours:** Saturated, clashing primaries. Pink, yellow, cyan, purple. Black outlines.
-- **Type:** A geometric with personality (Space Grotesk is too safe — try Syne, Unbounded, or Chivo). Heavy weights.
+- **Type:** A geometric with personality (Space Grotesk is too safe - try Syne, Unbounded, or Chivo). Heavy weights.
 - **Spacing:** Unpredictable. Dense in some areas, loose in others.
 - **Motion:** Bouncy spring. 250ms. Overshoot.
 - **Shadows:** Offset solid shadows (no blur). 4–6px.
@@ -98,17 +98,17 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 
 ---
 
-## Step 4 — Generate tokens.css
+## Step 4 - Generate tokens.css
 
 ```css
 /* ============================================
-   DESIGN TOKENS — <Feature Name>
+   DESIGN TOKENS - <Feature Name>
    Philosophy: <Aesthetic Philosophy>
    Generated: <date>
    ============================================ */
 
 /* -------- COLOUR: PRIMITIVES -------- */
-/* Raw values — not used directly in components */
+/* Raw values - not used directly in components */
 :root {
   --colour-neutral-0: #ffffff;
   --colour-neutral-50: #f9f9f7;
@@ -122,12 +122,12 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
   --colour-neutral-800: #1f1e1a;
   --colour-neutral-900: #0d0d0b;
 
-  /* Accent — derived from philosophy */
+  /* Accent - derived from philosophy */
   --colour-accent-300: ; /* light variant */
   --colour-accent-500: ; /* base accent */
   --colour-accent-700: ; /* dark variant */
 
-  /* Semantic — used in UI */
+  /* Semantic - used in UI */
   --colour-success: #2d7d46;
   --colour-warning: #a66000;
   --colour-error:   #c0392b;
@@ -176,7 +176,7 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 }
 
 [data-theme="dark"] {
-  /* Same overrides as above — allows manual toggle */
+  /* Same overrides as above - allows manual toggle */
 }
 
 /* -------- TYPOGRAPHY -------- */
@@ -223,7 +223,7 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 
 /* -------- SPACING -------- */
 :root {
-  /* Base unit — set from philosophy */
+  /* Base unit - set from philosophy */
   --space-unit: 8px;
 
   --space-0:  0;
@@ -287,7 +287,7 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 }
 
 /* -------- BREAKPOINTS -------- */
-/* Used as min-width values in media queries — mobile first */
+/* Used as min-width values in media queries - mobile first */
 /*
   --bp-sm:  640px
   --bp-md:  768px
@@ -314,7 +314,7 @@ Use these parameters as your starting point. Adjust based on the brief's emotion
 
 ---
 
-## Step 5 — Save and Report
+## Step 5 - Save and Report
 
 Save the completed file as `tokens.css` in the project root (or `src/styles/tokens.css` if the project uses a `src/styles/` convention).
 

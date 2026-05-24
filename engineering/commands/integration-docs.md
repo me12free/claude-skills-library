@@ -1,4 +1,4 @@
-I need to integrate $ARGUMENTS.
+﻿I need to integrate $ARGUMENTS.
 
 Before writing a single line of code:
 
@@ -29,7 +29,7 @@ After completing research, produce:
 
 **Security requirements**
 - List every credential needed, the env var name, and how it is scoped
-- List signature verification steps in order — must be constant-time
+- List signature verification steps in order - must be constant-time
 - List any IP allowlist requirements
 
 **Verified endpoint table**

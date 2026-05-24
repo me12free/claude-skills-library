@@ -1,4 +1,4 @@
-# Install Prompt — Per Project (paste this into Claude Code)
+﻿# Install Prompt - Per Project (paste this into Claude Code)
 
 > Paste the block below into Claude Code inside the project where you want the skills installed.
 > Claude will clone the repo, copy the files into `.claude/` in your project root,

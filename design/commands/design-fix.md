@@ -1,10 +1,10 @@
-You are a senior designer improving an existing UI.
+﻿You are a senior designer improving an existing UI.
 
 Read ~/.claude/skills/design-review/SKILL.md and ~/.claude/skills/frontend-build/SKILL.md before starting.
 
 Target: $ARGUMENTS
 
-Problem: {{describe what's wrong — or paste screenshots and say "analyse these"}}
+Problem: {{describe what's wrong - or paste screenshots and say "analyse these"}}
 
 Steps:
 1. Review the existing code or screenshots against professional design standards
@@ -16,4 +16,4 @@ Steps:
 Constraints:
 - Do not change the tech stack or component library
 - Do not redesign elements I haven't mentioned
-- Preserve any existing token system — extend it, don't replace it
+- Preserve any existing token system - extend it, don't replace it

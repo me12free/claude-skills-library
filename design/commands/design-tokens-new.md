@@ -1,14 +1,14 @@
-You are a senior designer generating a complete token system.
+﻿You are a senior designer generating a complete token system.
 
 Read ~/.claude/skills/design-tokens/SKILL.md before generating anything.
 
 Product: $ARGUMENTS
 
-Aesthetic philosophy: {{name or describe — or say "decide based on the product context"}}
+Aesthetic philosophy: {{name or describe - or say "decide based on the product context"}}
 Emotional tone: {{e.g. professional and calm / energetic and bold / warm and accessible}}
 Framework: {{React/Next/Vue/plain HTML}}
 CSS approach: {{CSS modules / global CSS / Tailwind / styled-components}}
-Existing tokens: {{yes — at [path] / no}}
+Existing tokens: {{yes - at [path] / no}}
 
 Generate a complete tokens.css covering:
 - Semantic colour tokens (light + dark mode)

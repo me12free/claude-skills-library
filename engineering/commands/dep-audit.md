@@ -1,4 +1,4 @@
-Audit the dependencies of $ARGUMENTS for security and maintenance risk.
+﻿Audit the dependencies of $ARGUMENTS for security and maintenance risk.
 
 Steps:
 1. Read requirements.txt / pyproject.toml / package.json (whichever applies)
@@ -22,7 +22,7 @@ Produce:
 - Outdated but not critical
 
 **Unpinned dependencies**
-- List any dependency without a pinned version — these are a supply-chain risk
+- List any dependency without a pinned version - these are a supply-chain risk
 - Recommend pinning strategy
 
 Output the full table first, then the action sections.

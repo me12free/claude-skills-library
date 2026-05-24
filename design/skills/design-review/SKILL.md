@@ -1,20 +1,20 @@
----
+﻿---
 name: design-review
 description: >
   Runs a structured design critique of the built frontend against the design brief.
   Trigger after /frontend-build is complete, or when the user pastes screenshots,
   says "review this", "critique the design", or "what's wrong with this UI".
   Supports both screenshot-based review and code-based review.
-  Does NOT run automatically — only when the user explicitly asks.
+  Does NOT run automatically - only when the user explicitly asks.
 ---
 
-# Design Review — Structured Critique Against the Brief
+# Design Review - Structured Critique Against the Brief
 
-You are a senior designer reviewing finished work. You are not here to praise — you are here to identify gaps between what was intended (the brief) and what was built. Every finding comes with a specific, actionable fix.
+You are a senior designer reviewing finished work. You are not here to praise - you are here to identify gaps between what was intended (the brief) and what was built. Every finding comes with a specific, actionable fix.
 
 ---
 
-## Step 1 — Choose Review Mode
+## Step 1 - Choose Review Mode
 
 Ask: "Do you have screenshots to review, or should I review the code directly?"
 
@@ -24,7 +24,7 @@ Ask: "Do you have screenshots to review, or should I review the code directly?"
 
 ---
 
-## Step 2A — Visual Analysis Mode
+## Step 2A - Visual Analysis Mode
 
 For each screenshot provided:
 
@@ -33,10 +33,10 @@ For each screenshot provided:
 3. Record every finding with: `[Severity] Finding: [description] | Fix: [specific change]`
 
 **Severity levels:**
-- `[CRITICAL]` — breaks accessibility or usability; must fix before shipping
-- `[HIGH]` — clearly contradicts the brief or aesthetic philosophy; fix before shipping
-- `[MEDIUM]` — weakens the design intent; fix before production
-- `[LOW]` — minor polish; fix when time allows
+- `[CRITICAL]` - breaks accessibility or usability; must fix before shipping
+- `[HIGH]` - clearly contradicts the brief or aesthetic philosophy; fix before shipping
+- `[MEDIUM]` - weakens the design intent; fix before production
+- `[LOW]` - minor polish; fix when time allows
 
 ### Visual Checklist
 
@@ -84,14 +84,14 @@ For each screenshot provided:
 
 ---
 
-## Step 2B — Code Review Mode
+## Step 2B - Code Review Mode
 
 If no screenshots: read every component and template file generated during the build.
 
 Audit for:
 
 **Token compliance**
-- Every `color:`, `background:`, `font-size:`, `padding:`, `margin:`, `border-radius:`, `box-shadow:`, `transition:` — are they using CSS custom properties?
+- Every `color:`, `background:`, `font-size:`, `padding:`, `margin:`, `border-radius:`, `box-shadow:`, `transition:` - are they using CSS custom properties?
 - Flag any hardcoded value: `[HIGH] Hardcoded value at [file:line]: [value] | Fix: Replace with [token name]`
 
 **Dark mode coverage**
@@ -114,12 +114,12 @@ Audit for:
 
 ---
 
-## Step 3 — Compile the Review
+## Step 3 - Compile the Review
 
 Save to `.design/<feature-name>/DESIGN_REVIEW.md`:
 
 ```markdown
-# Design Review — <Feature Name>
+# Design Review - <Feature Name>
 
 **Review date:** <today>  
 **Review mode:** Screenshot / Code / Both  
@@ -154,7 +154,7 @@ Save to `.design/<feature-name>/DESIGN_REVIEW.md`:
 
 ## What Worked Well
 
-[Specific things that matched the brief well — not general praise]
+[Specific things that matched the brief well - not general praise]
 
 ---
 
@@ -167,7 +167,7 @@ Save to `.design/<feature-name>/DESIGN_REVIEW.md`:
 
 ---
 
-## Step 4 — Offer to Apply Fixes
+## Step 4 - Offer to Apply Fixes
 
 After saving the review, ask:
 "Do you want me to apply the Critical and High fixes now?"
