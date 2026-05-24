@@ -2,6 +2,8 @@
 
 A 7-phase AI design process that takes a raw idea to a production-quality, accessible, dark-mode-ready frontend — with every decision documented.
 
+> **Credit:** These skills are adapted from [julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills) by Julian Oczkowski. The design process, phase structure, aesthetic philosophy system, and SKILL.md format are his original work. This adaptation restructures them as Claude Code slash commands and adds standalone prompt variants for developers who aren't designers but still need to ship good UIs.
+
 ---
 
 ## The Flow

@@ -9,6 +9,16 @@ Works globally (all your projects) or per-project (team-shared). Install in 60 s
 
 ---
 
+## About This Library
+
+Built by a full-stack developer with a strong backend bias — not a designer. The engineering commands are written from that perspective: security-first, production-focused, backend-heavy. The design skills exist because even backend-leaning developers ship UIs, and shipping a bad UI is still shipping bad work.
+
+**Design skills** are adapted from [julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills) — an excellent design process library by Julian Oczkowski. I adapted the skills for Claude Code's slash command system and added the standalone prompt variants. All credit for the design process, phase structure, and aesthetic philosophy system goes to Julian.
+
+**Engineering commands** are my own, written for senior full-stack and backend work.
+
+---
+
 ## Before You Start — Prerequisites
 
 **These skills work from context. They are not magic wands.**
@@ -32,7 +42,7 @@ See [setup/PREREQUISITES.md](setup/PREREQUISITES.md) for the full checklist.
 
 **Mac / Linux:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-skills-library.git
+git clone https://github.com/me12free/claude-skills-library.git
 cd claude-skills-library
 bash install.sh                    # install everything globally
 bash install.sh global design      # design skills only
@@ -42,7 +52,7 @@ bash install.sh project all        # install into current project (.claude/)
 
 **Windows (PowerShell):**
 ```powershell
-git clone https://github.com/YOUR_USERNAME/claude-skills-library.git
+git clone https://github.com/me12free/claude-skills-library.git
 cd claude-skills-library
 .\install.ps1                           # install everything globally
 .\install.ps1 -Scope global -Pack design
@@ -121,6 +131,13 @@ The design system is a 7-phase process. Run `/design-flow` to be guided through 
 | `/new-service <name>` | Pre-scaffold briefing — what to reuse, what risks |
 | `/test-gaps <module>` | Coverage map + prioritised test stubs |
 | `/dep-audit <service>` | CVE + maintenance risk table for all dependencies |
+
+---
+
+## Credits
+
+- **Design skills** — adapted from [julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills) by Julian Oczkowski. Original design process, phase structure, aesthetic philosophy system, and SKILL.md format are his work.
+- **Engineering commands** — written by [me12free](https://github.com/me12free).
 
 ---
 

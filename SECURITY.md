@@ -9,7 +9,7 @@ This library installs files into your Claude Code configuration directories (`~/
 A malicious fork with a similar name could install instructions that alter Claude's behaviour in harmful ways — leaking context, bypassing security defaults, or producing insecure code.
 
 Mitigations:
-- Clone only from the URL you personally trust and have verified
+- Clone only from `https://github.com/me12free/claude-skills-library` — verify the URL before running anything
 - Review the contents of `design/commands/`, `engineering/commands/`, and `design/skills/` before installing — they are plain markdown files, fully readable
 - After install, run `ls ~/.claude/commands/` and `ls ~/.claude/skills/` to confirm only expected files are present
 - If you installed from an unverified source, remove the files and reinstall from the correct repo

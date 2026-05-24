@@ -11,7 +11,7 @@
 #   powershell -ExecutionPolicy Bypass -File install.ps1
 #
 # SECURITY: only run this from a clone of the official repo.
-# Verify the URL before cloning: https://github.com/YOUR_USERNAME/claude-skills-library
+# Verify the URL before cloning: https://github.com/me12free/claude-skills-library
 
 param(
   [ValidateSet("global","project")]

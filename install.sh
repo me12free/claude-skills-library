@@ -9,7 +9,7 @@
 #   bash install.sh project design       → design skills into current project only
 #
 # SECURITY: only run this from a clone of the official repo.
-# Verify the URL before cloning: https://github.com/YOUR_USERNAME/claude-skills-library
+# Verify the URL before cloning: https://github.com/me12free/claude-skills-library
 
 set -euo pipefail
 
