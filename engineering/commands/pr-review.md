@@ -54,6 +54,12 @@ This section covers changes in files that already existed on the base branch. Re
 **Beat schedule conflicts**
 - Do any new cron entries share the same UTC time window as existing heavy tasks (scoring, billing, reconciliation)? Flag Sunday / daily collisions that could exhaust DB connections.
 
+**Worker and queue resource fit**
+- Is a new queue declared but no worker process in the deployment config (docker-compose, Procfile, start script) actually consumes it? If so, tasks will accumulate in the broker indefinitely. Do not just flag this — read the task definitions, classify each task by profile (short I/O-bound, long DB-heavy batch, high-frequency per-event), compare against existing worker queue assignments and their concurrency/memory settings, then give a specific routing recommendation. Only recommend a new dedicated worker if the task profile is genuinely incompatible with every existing worker (different memory ceiling, different SLA, needs independent scaling). At current scale, rerouting to an existing queue is almost always the lower-cost right answer.
+- Is there a beat schedule conflict? Read the existing `beat_schedule` entries and their UTC times. If a new batch task lands in the same time slot as an existing heavy task on a `concurrency=1` worker, give the specific time fix — don't just note the risk.
+- Is there a high-frequency fan-out pattern — one write event triggering one task per record? Read what models the event listeners attach to and what the write frequency is (payment processing, user updates, etc.). If there is no debounce guard, recommend one with a specific TTL based on what the task actually does and what staleness is acceptable for that domain. State the reasoning, not just "consider a debounce".
+- Is `worker_prefetch_multiplier` left at its default (4) on a worker that runs long tasks? Flag it with the specific worker name and the impact on that worker's queue.
+
 ---
 
 ## Section 3 — Migration safety
